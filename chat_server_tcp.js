@@ -5,7 +5,7 @@ const io = require('socket.io')(http)
 http.listen(3000, ()=>{console.log('Estou ouvindo')});
 
 
-io.on('connection', ()=>{
+io.on('connection', (socket)=>{
     console.log('Cliente conectado', socket.id);
 
     socket.on('message', (evt)=>{
