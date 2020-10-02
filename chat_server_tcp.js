@@ -9,7 +9,8 @@ io.on('connection', (socket)=>{
     console.log('Cliente conectado', socket.id);
 
     socket.on('message', (evt)=>{
-        console.log(evt);
+        console.log(evt)
+        socket.broadcast.emit('message', evt)
     })
 
     socket.on('disconnect',()=>{

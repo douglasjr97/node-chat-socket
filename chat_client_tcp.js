@@ -1,13 +1,16 @@
 var socket = require('socket.io-client')('http://localhost:3000');
 const repl = require('repl');
 //const chalk = require('chalk');
+
 //socket.on('connect');
-//socket.on('message');
+socket.on('message', (data) => {
+    console.log(data);
+});
 
 repl.start({
     prompt:'',
     eval: (mensagem) => {
        console.log(`Voce digitou ${mensagem}`)
-       //socket.send(mensagem)
+       socket.send(mensagem)
     }
 })
